@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ordenar Arrays de Cadenas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2d3134;
+            padding: 50px;
+        }
+        .contenedor {
+            background-color: white;
+            padding: 20px;
+            width: 600px;
+            margin: 0 auto;
+        }
+        textarea {
+            width: 400px;
+            height: 150px;
+            vertical-align: top;
+        }
+        .boton {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>Ordenar Arrays de Cadenas</h1>
+        <p>Ingrese nombres en la caja de texto de abajo y ordene este listado el cual apareceran en el área de texto.</p>
+        
+        <label>Nombre:</label>
+        <input type="text" id="cajaNombre">
+        <button class="boton" onclick="agregarYOrdenar()">Agregar y ordenar nombre</button>
+
+        <h2>Nombres ordenados</h2>
+        
+        <textarea id="areaResultado" readonly placeholder="Aqui apareceran lo nombres ordenados"></textarea>
+        <button class="boton" onclick="limpiarTodo()">Limpiar</button>
+    </div>
+
+    <script>
+        let listaNombres = [];
+
+        function agregarYOrdenar() {
+            let nuevoNombre = document.getElementById("cajaNombre").value;
+
+            if (nuevoNombre !== "") {
+                listaNombres.push(nuevoNombre);
+                listaNombres.sort();
+                document.getElementById("areaResultado").value = listaNombres.join("\n");
+                document.getElementById("cajaNombre").value = "";
+            }
+        }
+
+        function limpiarTodo() {
+            listaNombres = [];
+            document.getElementById("areaResultado").value = "";
+        }
+    </script>
+
+</body>
+</html>
